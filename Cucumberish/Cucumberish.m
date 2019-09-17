@@ -388,6 +388,7 @@ OBJC_EXTERN NSString * stepDefinitionLineForStep(CCIStep * step);
         for(CCIStep * step in scenario.steps){
             NSString * placeHolder = [NSString stringWithFormat:@"<%@>", variable];
             step.text = [step.text stringByReplacingOccurrencesOfString:placeHolder withString:replacement];
+            step.argument.content = [step.argument.content stringByReplacingOccurrencesOfString:placeHolder withString:replacement];
             if (step.argument.rows) {
                 NSMutableArray *modifiedRows = [NSMutableArray arrayWithCapacity:step.argument.rows.count];
                 for (NSArray *row in step.argument.rows) {
